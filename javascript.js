@@ -5,7 +5,7 @@ var humanChoice = getHumanChoice ();
 console.log(compChoice);
 console.log(humanChoice);
 
-compareChoices ();
+playRound ();
 
 console.log("Computer: ",compScore);
 console.log("Humans: ", humanScore)
@@ -38,7 +38,7 @@ function getHumanChoice () {
     return humanChoice;
 }
 
-function compareChoices () {
+function playRound () {
     if ((humanChoice === "rock") || (humanChoice === "paper") || (humanChoice === "scissors")) compareValid()
      else { alert ("Invalid Choice - Try Again");
         }
@@ -49,15 +49,21 @@ function compareValid () {
         console.log("It's a draw!");
       } else if (compChoice === "rock" && humanChoice === "scissors") {
         compScore++;
+        console.log("You loose! - Rock beats Scissors")
       } else if (compChoice === "rock" && humanChoice === "paper") {
         humanScore++;
+        console.log("You Win! - Paper beats Rock");
       } else if (compChoice === "scissors" && humanChoice === "rock") {
         humanScore++;
+        console.log("You Win! - Rock beats Scissors");
       } else if (compChoice === "scissors" && humanChoice === "paper") {
         compScore++;
+        console.log("You loose! - Scissors beat Paper");
       } else if (compChoice === "paper" && humanChoice === "rock") {
         compScore++;
+        console.log("You loose! - Paper beats Rock");
       } else if (compChoice === "paper" && humanChoice === "scissors") {
         humanScore++;
+        console.log("You Win! - Scissors beat Paper");
       }
 }
