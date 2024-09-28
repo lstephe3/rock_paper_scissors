@@ -1,7 +1,14 @@
+let humanScore = 0;
+let compScore = 0;
 var compChoice = getComputerChoice ();
 var humanChoice = getHumanChoice ();
 console.log(compChoice);
 console.log(humanChoice);
+
+compareChoices ();
+
+console.log("Computer: ",compScore);
+console.log("Humans: ", humanScore)
 
 function randomIntFromInterval(min, max) { // min and max included 
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -12,20 +19,45 @@ function getComputerChoice () {
     console.log(rndInt);
 
     if (rndInt === 1) {
-        compChoice = "Rock";
+        compChoice = "rock";
     }
         else {
             if (rndInt === 2) {
-            compChoice = "Paper";
+            compChoice = "paper";
             }
         else {
-            compChoice = "Scissors";
+            compChoice = "scissors";
             }
         }
     return compChoice
 }
 
 function getHumanChoice () {
-    let humanChoice = prompt("Please enter Rock, Paper or Scissors");
+    let response = prompt("Please enter Rock, Paper or Scissors");
+    let humanChoice = response.toLowerCase();
     return humanChoice;
+}
+
+function compareChoices () {
+    if ((humanChoice === "rock") || (humanChoice === "paper") || (humanChoice === "scissors")) compareValid()
+     else { alert ("Invalid Choice - Try Again");
+        }
+}
+
+function compareValid () {
+    if (compChoice === humanChoice) {
+        console.log("It's a draw!");
+      } else if (compChoice === "rock" && humanChoice === "scissors") {
+        compScore++;
+      } else if (compChoice === "rock" && humanChoice === "paper") {
+        humanScore++;
+      } else if (compChoice === "scissors" && humanChoice === "rock") {
+        humanScore++;
+      } else if (compChoice === "scissors" && humanChoice === "paper") {
+        compScore++;
+      } else if (compChoice === "paper" && humanChoice === "rock") {
+        compScore++;
+      } else if (compChoice === "paper" && humanChoice === "scissors") {
+        humanScore++;
+      }
 }
