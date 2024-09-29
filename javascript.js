@@ -52,8 +52,6 @@ function randomIntFromInterval(min, max) { // min and max included
   
 function getComputerChoice () {
     const rndInt = randomIntFromInterval(1, 3);
-    console.log(rndInt);
-
     if (rndInt === 1) {
         computerChoice = "rock";
     }
